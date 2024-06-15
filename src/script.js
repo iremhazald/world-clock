@@ -29,41 +29,53 @@ updateTime();
 setInterval(updateTime, 1000);
 
 function updateCity(event) {
-  if (event.target.value != "") {
-    let cityTimeZone = event.target.value;
-    let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  let cityTimeZone = event.target.value;
+  let yourTimeZone = moment.tz.guess();
+  let citiesElement = document.querySelector("#cities");
+
+  if (cityTimeZone === "local") {
+    let cityName = yourTimeZone.split("/")[1].replace("_", " ");
+    let cityTime = moment().tz(yourTimeZone);
+    citiesElement.innerHTML = `
+          <div class="city">
+            <div>
+              <h2>${cityName}</h2>
+              <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
+            </div>
+            <div class="time">${cityTime.format(
+              "h:mm:ss [<small>]A[</small>]"
+            )}</div>
+          </div>`;
+  } else if (cityTimeZone !== "") {
+    let cityName = cityTimeZone.split("/")[1].replace("_", " ");
     let cityTime = moment().tz(cityTimeZone);
-    let citiesElement = document.querySelector("#cities");
     citiesElement.innerHTML = `
-  <div class="city">
-          <div>
-            <h2>${cityName}</h2>
-            <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
-          </div>
-          <div class="time">${cityTime.format(
-            "h:mm:ss [<small>]A[</small>]"
-          )}</div>
-        </div>
-  `;
+          <div class="city">
+            <div>
+              <h2>${cityName}</h2>
+              <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
+            </div>
+            <div class="time">${cityTime.format(
+              "h:mm:ss [<small>]A[</small>]"
+            )}</div>
+          </div>`;
   } else {
-    let citiesElement = document.querySelector("#cities");
     citiesElement.innerHTML = `
-     <div class="city" id="los-angeles">
-          <div>
-            <h2>Los Angeles</h2>
-            <div class="date" id="dateLA"></div>
+          <div class="city" id="los-angeles">
+            <div>
+              <h2>Los Angeles</h2>
+              <div class="date" id="dateLA"></div>
+            </div>
+            <div class="time" id="timeLA"></div>
           </div>
-          <div class="time" id="timeLA"></div>
-        </div>
-        <div class="city" id="paris">
-          <div>
-            <h2>Paris</h2>
-            <div class="date" id="dateParis"></div>
-          </div>
-          <div class="time" id="timeParis"></div>
-        </div>`;
+          <div class="city" id="paris">
+            <div>
+              <h2>Paris</h2>
+              <div class="date" id="dateParis"></div>
+            </div>
+            <div class="time" id="timeParis"></div>
+          </div>`;
     updateTime();
-    setInterval(updateTime, 1000);
   }
 }
 
