@@ -11,25 +11,27 @@
   <body>
     <div id="container">
       <h1>World Clock</h1>
-      <select>
+      <select id="selectCity">
         <option value="">Select a city</option>
-        <option value="istanbul">Istanbul</option>
-        <option value="tokyo">Tokyo</option>
-        <option value="toronto">Toronto</option>
+        <option value="Asia/Istanbul">Istanbul</option>
+        <option value="Asia/Tokyo">Tokyo</option>
+        <option value="America/Toronto">Toronto</option>
       </select>
-      <div class="city" id="los-angeles">
-        <div>
-          <h2>Los Angeles</h2>
-          <div class="date" id="dateLA"></div>
+      <div id="cities">
+        <div class="city" id="los-angeles">
+          <div>
+            <h2>Los Angeles</h2>
+            <div class="date" id="dateLA"></div>
+          </div>
+          <div class="time" id="timeLA"></div>
         </div>
-        <div class="time" id="timeLA"></div>
-      </div>
-      <div class="city" id="paris">
-        <div>
-          <h2>Paris</h2>
-          <div class="date" id="dateParis"></div>
+        <div class="city" id="paris">
+          <div>
+            <h2>Paris</h2>
+            <div class="date" id="dateParis"></div>
+          </div>
+          <div class="time" id="timeParis"></div>
         </div>
-        <div class="time" id="timeParis"></div>
       </div>
     </div>
     <footer>
