@@ -22,6 +22,18 @@ function updateTime() {
       .tz("Europe/Paris")
       .format("h:mm:ss [<small>]A[</small>]");
   }
+
+  let lisbonElement = document.querySelector("#lisbon");
+  if (lisbonElement) {
+    let lisbonDateElement = document.querySelector("#dateLisbon");
+    let lisbonTimeElement = document.querySelector("#timeLisbon");
+    lisbonDateElement.innerHTML = moment()
+      .tz("Europe/Lisbon")
+      .format("MMMM Do YYYY");
+    lisbonTimeElement.innerHTML = moment()
+      .tz("Europe/Lisbon")
+      .format("h:mm:ss [<small>]A[</small>]");
+  }
 }
 
 updateTime();
@@ -85,7 +97,15 @@ function updateCity(event) {
               <div class="date" id="dateParis"></div>
             </div>
             <div class="time" id="timeParis"></div>
-          </div>`;
+          </div>
+           <div class="city" id="lisbon">
+          <div>
+            <h2>Lisbon</h2>
+            <div class="date" id="dateLisbon"></div>
+          </div>
+          <div class="time" id="timeLisbon"></div>
+        </div>
+      </div>`;
     updateTime();
     intervalID = setInterval(updateTime, 1000);
   }

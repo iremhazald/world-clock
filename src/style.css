@@ -40,10 +40,11 @@ h1 img {
 }
 
 #container {
-  max-width: 600px;
+  max-width: 650px;
+  max-height: 700px;
   margin: 10px auto;
   background: #ececec;
-  padding: 30px;
+  padding: 10px 30px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   border-radius: 35px;
 }
