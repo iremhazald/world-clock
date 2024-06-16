@@ -1,27 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 body {
-  background-color: #3e4a61;
-  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(
+    180deg,
+    hsl(213deg 33% 33%) 0%,
+    hsl(210deg 37% 34%) 7%,
+    hsl(206deg 41% 34%) 13%,
+    hsl(203deg 44% 35%) 18%,
+    hsl(200deg 49% 35%) 23%,
+    hsl(196deg 53% 36%) 29%,
+    hsl(193deg 58% 36%) 34%,
+    hsl(190deg 62% 36%) 40%,
+    hsl(186deg 68% 36%) 47%,
+    hsl(183deg 73% 36%) 55%,
+    hsl(179deg 79% 36%) 64%,
+    hsl(176deg 86% 36%) 74%,
+    hsl(173deg 93% 36%) 86%,
+    hsl(169deg 100% 36%) 100%
+  );
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 100vh;
 }
 
 h1 {
   text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+h1 img {
+  height: 60%;
+  width: 60%;
+  padding: 0px 0px 20px 0px;
 }
 
 #container {
   max-width: 600px;
-  margin: 60px auto;
-  background: #d9dad7;
+  margin: 10px auto;
+  background: #ececec;
   padding: 30px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border-radius: 35px;
 }
 
 select {
   display: block;
   width: 100%;
-  font-size: 18px;
+  font-size: 15px;
   border-radius: 4px;
   padding: 10px;
+}
+
+#selectCity {
+  border: 2px solid#233142;
+  background-color: #9de0f2;
 }
 
 .city {
@@ -38,6 +75,7 @@ select {
 .time {
   font-size: 36px;
   font-weight: bold;
+  color: #047c66;
 }
 
 .time small {
@@ -47,15 +85,26 @@ select {
 }
 h2 {
   margin: 0 0 5px;
-  font-size: 28px;
+  font-size: 25px;
+  color: #142d4c;
 }
 
 .date {
-  opacity: 0.7;
+  color: #142d4c;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+#allcities {
+  color: #142d4c;
+}
+
+#allcities:hover {
+  color: #142d4c;
 }
 
 footer {
   text-align: center;
-  font-size: 18px;
+  font-size: 12px;
   color: rgba(0, 0, 0, 0.8);
 }

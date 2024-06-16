@@ -26,17 +26,19 @@ function updateTime() {
 
 updateTime();
 
-setInterval(updateTime, 1000);
+let intervalID = setInterval(updateTime, 1000);
 
 function updateCity(event) {
+  clearInterval(intervalID);
   let cityTimeZone = event.target.value;
   let yourTimeZone = moment.tz.guess();
   let citiesElement = document.querySelector("#cities");
 
   if (cityTimeZone === "local") {
-    let cityName = yourTimeZone.split("/")[1].replace("_", " ");
-    let cityTime = moment().tz(yourTimeZone);
-    citiesElement.innerHTML = `
+    function localCityFunction() {
+      let cityName = yourTimeZone.split("/")[1].replace("_", " ");
+      let cityTime = moment().tz(yourTimeZone);
+      citiesElement.innerHTML = `
           <div class="city">
             <div>
               <h2>${cityName}</h2>
@@ -45,11 +47,16 @@ function updateCity(event) {
             <div class="time">${cityTime.format(
               "h:mm:ss [<small>]A[</small>]"
             )}</div>
-          </div>`;
+          </div>
+          <a id="allcities" href="index.html">All cities</a>`;
+    }
+    localCityFunction();
+    intervalID = setInterval(localCityFunction, 1000);
   } else if (cityTimeZone !== "") {
     let cityName = cityTimeZone.split("/")[1].replace("_", " ");
-    let cityTime = moment().tz(cityTimeZone);
-    citiesElement.innerHTML = `
+    function selectedCityFunction() {
+      let cityTime = moment().tz(cityTimeZone);
+      citiesElement.innerHTML = `
           <div class="city">
             <div>
               <h2>${cityName}</h2>
@@ -58,7 +65,11 @@ function updateCity(event) {
             <div class="time">${cityTime.format(
               "h:mm:ss [<small>]A[</small>]"
             )}</div>
-          </div>`;
+          </div>
+          <a id="allcities" href="index.html">All cities</a>`;
+    }
+    selectedCityFunction();
+    intervalID = setInterval(selectedCityFunction, 1000);
   } else {
     citiesElement.innerHTML = `
           <div class="city" id="los-angeles">
@@ -76,6 +87,7 @@ function updateCity(event) {
             <div class="time" id="timeParis"></div>
           </div>`;
     updateTime();
+    intervalID = setInterval(updateTime, 1000);
   }
 }
 
